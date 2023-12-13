@@ -152,4 +152,17 @@ export class ClientDetailComponent implements OnInit{
      
     );
   }
+
+  imprimerDetailcustomer() {
+    this.clientService.imprimerDetailcustomer(this.clientId).subscribe(
+      (response: any) => {
+        const blob = new Blob([response], { type: 'application/pdf' });
+        const fileURL = URL.createObjectURL(blob);
+        window.open(fileURL);
+      },
+      (error) => {
+        console.error('Erreur lors de l\'appel à imprimercustomer : ', error);
+      }
+    );
+  }
 }

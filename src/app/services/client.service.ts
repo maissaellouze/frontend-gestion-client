@@ -97,5 +97,11 @@ constructor(private http: HttpClient) {
     
     return this.http.get(environment.backendHost+"imprimer", { responseType: 'blob' });
   }
+
+  public imprimerDetailcustomer(clientId: number){
+    console.log(`${environment.backendHost}${clientId}/imprimer`);
+    
+    return this.http.get(`${environment.backendHost}${clientId}/imprimer`, { responseType: 'blob' });
+  }
 }
 
